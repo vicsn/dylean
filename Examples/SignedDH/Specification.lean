@@ -14,6 +14,7 @@ public import DY.Actions.PersistentLocalState
 public import DY.Actions.LongTermKeys
 public import DY.Comparse
 
+-- TODO: is it really worth it to mix `namespace` and `section`?
 namespace DY.Example.SignedDH
 
 open DY.Comparse
@@ -243,10 +244,12 @@ end ExecTraceConfig
 
 public section Specification
 
+-- TODO: explain why we're declaring/defining this
 variable [HasExecTrace]
 
 instance: LongTermKeys.ExecConfig "SignedDH PKI" Signature.vk where
 
+-- TODO: Why are we specifying (Nat × Nat)?
 def Client.initiate (me: Participant): Traceful (Nat × Nat) := do
   let xSk ← Random.genRand 32
   let xPk := DiffieHellman.dhPk xSk

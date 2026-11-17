@@ -48,6 +48,7 @@ where
   pf trBefore entry b := by
     simp [baseAttackerKnowledge]
 
+@[expose]
 public
 def _root_.DY.Trace.EventLoggedAt
   {EventT: Type}
